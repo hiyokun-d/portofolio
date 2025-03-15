@@ -2,7 +2,7 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import Image from 'next/image';
 import styles from "./title.module.css";
-import bg from "@/app/background/background-title.gif";
+import bg from "@/app/background/background-title-dark.gif";
 import crownIcon from "@/app/background/hiyo-icon.png"
 import anime from 'animejs';
 import { Coffee, Code, Star, Zap, Music } from 'lucide-react';
@@ -154,46 +154,46 @@ export default function Title() {
       }}
     >
 
-    <div className={styles.contentContainer}>
-    <section id="text" className={`${styles.content} slide-in`}>
-      <div className={`${styles.bgMainContent} animatedMain`}>
-        <h1>
-          Hi, I'm{' '}
-          <span className={`${styles.name} grow-in animated-name`}>
-            {names[currentNameIndex]}
-          </span>
-        </h1>
-        <p className={styles.typewriter}>Making something fun with simple code</p>
+      <div className={styles.contentContainer}>
+        <section id="text" className={`${styles.content} slide-in`}>
+          <div className={`${styles.bgMainContent} animatedMain`}>
+            <h1>
+              Hi, I'm{' '}
+              <span className={`${styles.name} grow-in animated-name`}>
+                {names[currentNameIndex]}
+              </span>
+            </h1>
+            <p className={styles.typewriter}>Making something fun with simple code</p>
+          </div>
+        </section>
       </div>
-    </section>
-    </div>
-  
-    <section id="images" className={styles.imagesSection}>
-      <div
-        className={styles.iconContainer}
-        onMouseEnter={() => setIsIconHovered(true)}
-        onMouseLeave={() => setIsIconHovered(false)}
-        ref={iconRef}
-        style={{
-          transform: `translate(${mousePosition.x}px, ${mousePosition.y}px)`,
-        }}
-      >
-        <div className={styles.iconCircle}>
-          <Image
-            src={`${crownIcon.src}`}
-            alt="Interactive Icon"
-            width={200}
-            height={200}
-            className={styles.mainIcon}
-          />
+
+      <section id="images" className={styles.imagesSection}>
+        <div
+          className={styles.iconContainer}
+          onMouseEnter={() => setIsIconHovered(true)}
+          onMouseLeave={() => setIsIconHovered(false)}
+          ref={iconRef}
+          style={{
+            transform: `translate(${mousePosition.x}px, ${mousePosition.y}px)`,
+          }}
+        >
+          <div className={styles.iconCircle}>
+            <Image
+              src={`${crownIcon.src}`}
+              alt="Interactive Icon"
+              width={200}
+              height={200}
+              className={styles.mainIcon}
+            />
+          </div>
+          <Coffee className={`${styles.iconItem} icon-item`} size={48} color="#e0e0e0" />
+          <Code className={`${styles.iconItem} icon-item`} size={48} color="#00bcd4" />
+          <Star className={`${styles.iconItem} icon-item`} size={48} color="#ffd54f" />
+          <Zap className={`${styles.iconItem} icon-item`} size={48} color="#ff4081" />
+          <Music className={`${styles.iconItem} icon-item`} size={48} color="#4caf50" />
         </div>
-        <Coffee className={`${styles.iconItem} icon-item`} size={48} color="#e0e0e0" />
-        <Code className={`${styles.iconItem} icon-item`} size={48} color="#00bcd4" />
-        <Star className={`${styles.iconItem} icon-item`} size={48} color="#ffd54f" />
-        <Zap className={`${styles.iconItem} icon-item`} size={48} color="#ff4081" />
-        <Music className={`${styles.iconItem} icon-item`} size={48} color="#4caf50" />
-      </div>
-    </section>
-  </main>
+      </section>
+    </main>
   );
 }
