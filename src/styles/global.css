@@ -1,0 +1,132 @@
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Bitcount:wght@100..900&family=Roboto+Flex:opsz,wght@8..144,100..1000&family=Special+Gothic+Expanded+One&display=swap");
+@import "tailwindcss";
+
+* {
+	box-sizing: border-box;
+	transition: background-color 0.3s ease, color 0.3s ease, border 0.3s ease;
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+body {
+	position: relative;
+	/* background-color: white; */
+	margin: 0;
+	padding: 0;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	color: white;
+	background: linear-gradient(270deg, #0f0e1a, #0a0a23, #000000);
+	background-size: 600% 600%;
+	animation: gradientShift 20s ease infinite;
+}
+
+html,
+body {
+	touch-action: manipulation;
+}
+
+button,
+a {
+	cursor: pointer;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+span,
+p,
+text {
+	cursor: text;
+	width: fit-content;
+}
+
+.custom-cursor {
+	will-change: transform;
+}
+
+/* Optional hover pulse animation */
+@keyframes cursorPulse {
+	0%,
+	100% {
+		transform: scale(1);
+		opacity: 1;
+	}
+	50% {
+		transform: scale(1.1);
+		opacity: 0.8;
+	}
+}
+
+.custom-cursor.pulse {
+	animation: cursorPulse 1.4s ease-in-out infinite;
+}
+
+.bitcount-default {
+	font-family: "Bitcount", system-ui;
+	font-optical-sizing: auto;
+	font-weight: 300;
+	font-style: normal;
+	font-variation-settings: "slnt" 0, "CRSV" 0.5, "ELSH" 0, "ELXP" 0;
+}
+
+.special-gothic-expanded-one-regular {
+	font-family: "Special Gothic Expanded One", sans-serif;
+	font-weight: 400;
+	font-style: normal;
+}
+
+.roboto-flex-default {
+	font-family: "Roboto Flex", sans-serif;
+	font-optical-sizing: auto;
+	font-weight: 100;
+	font-style: normal;
+	font-variation-settings: "slnt" 0, "wdth" 100, "GRAD" 0, "XOPQ" 96, "XTRA" 468,
+		"YOPQ" 79, "YTAS" 750, "YTDE" -203, "YTFI" 738, "YTLC" 514, "YTUC" 712;
+}
+
+.bebas-neue-regular {
+	font-family: "Bebas Neue", sans-serif;
+	font-weight: 400;
+	font-style: normal;
+}
+
+html.lenis,
+html.lenis body {
+	height: auto;
+}
+
+.lenis:not(.lenis-autoToggle).lenis-stopped {
+	overflow: clip;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+	overscroll-behavior: contain;
+}
+
+.lenis.lenis-smooth iframe {
+	pointer-events: none;
+}
+
+.lenis.lenis-autoToggle {
+	transition-property: overflow;
+	transition-duration: 1ms;
+	transition-behavior: allow-discrete;
+}
+
+@keyframes gradientShift {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
