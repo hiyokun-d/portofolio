@@ -33,15 +33,18 @@ export default function GridGen({ }) {
     }, []);
 
     const rect = useMemo(() => {
-        const totalCells = 60; // 10 x 6 but still flexible
-        return Array.from({ length: totalCells }, (_, i) => (
-            <div
-                key={i}
-                className="bg-cell w-full h-full bg-transparent border-0"
-                data-index={i}
-                onClick={handleClick}
-            />
-        ));
+        const cells = [];
+        for (let i = 0; i < GRID_WIDTH * GRID_HEIGHT; i++) {
+            cells.push(
+                <div
+                    key={i}
+                    className="bg-cell w-full h-full bg-transparent border-0"
+                    data-index={i}
+                    onClick={handleClick}
+                />
+            );
+        }
+        return cells;
     }, [handleClick]);
 
     return <>{rect}</>;
