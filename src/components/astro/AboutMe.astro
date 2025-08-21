@@ -3,102 +3,151 @@ import "../../styles/AboutMe.css";
 import GridGen from "../../components/react/GridGen.jsx";
 ---
 
-<section >
-  <div id="background" class="absolute w-full h-full flex justify-between z-[-10] pointer-events-auto">
-    <div id="bg-left" class=" background w-[50vw] h-full "></div>
-    <div id="bg-right" class=" background w-[50vw] h-full "></div>
-    <div id="bg-grid" class="absolute w-full h-full grid grid-cols-10 grid-rows-6">
-      <GridGen client:only/>
-    </div>
-  </div>
+<section
+	class="relative w-screen h-screen flex justify-center items-center-safe flex-col pointer-events-none"
+>
+	<div
+		id="background"
+		class="absolute w-full h-full flex justify-between z-[-10] pointer-events-auto overflow-hidden"
+	>
+		<div id="bg-left" class="background w-[50vw] h-full"></div>
+		<div id="bg-right" class="background w-[50vw] h-full"></div>
+		<div
+			id="bg-grid"
+			class="absolute w-full h-full grid grid-cols-10
+			sm:grid-cols-8
+			xs:grid-cols-6"
+			style={{ aspectRatio: "10/6" }}
+		>
+			<GridGen client:only />
+		</div>
+	</div>
 
-  <div id="content" class="absolute w-screen h-screen flex justify-center items-center px-6 pointer-events-none">
-    <div class="flex flex-col md:flex-row items-center gap-12 max-w-6xl w-full pointer-events-auto">
-      
-      <!-- Left side: text -->
-      <div class="flex-1 space-y-4 pointer-events-auto">
-        <header class="pointer-events-auto pb-10 h-20">
-          <h1 class="text-4xl md:text-5xl font-bold mb-[-30px] " data-cursor-style="line-text">
-            I’m 
-            <span 
-  class="bebas-neue-regular md:text-6xl text-8xl text-cyan-300 drop-shadow-[0_0_10px_#22d3ee] drop-shadow-[0_0_20px_#38bdf8] transition-all duration-300 ease-in-out hover:scale-110 hover:text-cyan-400 hover:drop-shadow-[0_0_15px_#22d3ee] hover:drop-shadow-[0_0_30px_#38bdf8]" 
-  data-cursor-style="line-text">
-  Daffa
-</span>
-          </h1>
+	<div
+		id="content"
+		class="absolute w-screen h-screen flex justify-center items-center px-6 pointer-events-none"
+	>
+		<div
+			class="flex flex-col md:flex-row items-center gap-12 max-w-6xl w-full pointer-events-auto"
+		>
+			<!-- Left side: text -->
+			<div class="flex-1 space-y-4 pointer-events-auto">
+				<header class="pointer-events-auto pb-10 h-20">
+					<h1
+						class="text-4xl md:text-5xl font-bold mb-[-30px]"
+						data-cursor-style="line-text"
+					>
+						I’m
+						<span
+							class="bebas-neue-regular md:text-6xl text-8xl text-cyan-300 drop-shadow-[0_0_10px_#22d3ee] drop-shadow-[0_0_20px_#38bdf8] transition-all duration-300 ease-in-out hover:scale-110 hover:text-cyan-400 hover:drop-shadow-[0_0_15px_#22d3ee] hover:drop-shadow-[0_0_30px_#38bdf8]"
+							data-cursor-style="line-text"
+						>
+							Daffa
+						</span>
+					</h1>
 
-          <p class="text-base md:text-lg text-gray-400 leading-snug mt-0" data-cursor-style="line-text">
-            Developer from 
-            <span class="bebas-neue-regular bg-gradient-to-r from-red-500 to-white bg-clip-text text-transparent" data-cursor-style="line-text">
-              Indonesia
-            </span> 🇮🇩
-          </p>
-        </header>
-  
-        <p class="text-base md:text-lg leading-relaxed pointer-events-auto" data-cursor-style="line-text">
-          I turn <span class="highlight">caffeine</span> into code, occasional bugs into 
-          <span class="highlight">features</span> (totally on purpose), and random ideas into 
-          <span class="highlight">full-stack projects</span>. From crafting smooth UIs to building 
-          solid backends, I enjoy working across the stack.
-        </p>
-  
-        <p class="text-base md:text-lg leading-relaxed pointer-events-auto" data-cursor-style="line-text">
-          This <span class="highlight">portfolio</span> was built from scratch with 
-          <span class="highlight">Astro</span>, <span class="highlight">React</span>, 
-          <span class="highlight">Tailwind CSS</span>, <span class="highlight">Anime.js</span>, 
-          and <span class="highlight">Lenis.js</span>. When I’m not coding, I’m usually 
-          <span class="highlight">gaming</span>, watching movies, or exploring new tech.
-        </p>
-      </div>
-  
-      <!-- Right side: image -->
-      <div class="flex-1 flex justify-center md:justify-end pointer-events-auto">
-        <img 
-          src="/my-icon.webp" 
-          alt="Portrait of Daffa" 
-          data-cursor-style="image"
-          class="rounded-xl shadow-lg max-w-xs pointer-events-auto"
-        />
-      </div>
-  
-    </div>
-  </div>
+					<p
+						class="text-base md:text-lg text-gray-400 leading-snug mt-0"
+						data-cursor-style="line-text"
+					>
+						Developer from
+						<span
+							class="bebas-neue-regular bg-gradient-to-r from-red-500 to-white bg-clip-text text-transparent"
+							data-cursor-style="line-text"
+						>
+							Indonesia
+						</span> 🇮🇩
+					</p>
+				</header>
+
+				<p
+					class="text-base md:text-lg leading-relaxed pointer-events-auto"
+					data-cursor-style="line-text"
+				>
+					I turn <span class="highlight">caffeine</span> into code, occasional bugs
+					into
+					<span class="highlight">features</span> (totally on purpose), and random
+					ideas into
+					<span class="highlight">full-stack projects</span>. From crafting
+					smooth UIs to building solid backends, I enjoy working across the
+					stack.
+				</p>
+
+				<p
+					class="text-base md:text-lg leading-relaxed pointer-events-auto"
+					data-cursor-style="line-text"
+				>
+					This <span class="highlight">portfolio</span> was built from scratch with
+					<span class="highlight">Astro</span>, <span class="highlight"
+						>React</span
+					>,
+					<span class="highlight">Tailwind CSS</span>, <span class="highlight"
+						>Anime.js</span
+					>, and <span class="highlight">Lenis.js</span>. When I’m not coding,
+					I’m usually
+					<span class="highlight">gaming</span>, watching movies, or exploring
+					new tech.
+				</p>
+			</div>
+
+			<!-- Right side: image -->
+			<div
+				class="flex-1 flex justify-center md:justify-end pointer-events-auto"
+			>
+				<img
+					src="/my-icon.webp"
+					alt="Portrait of Daffa"
+					data-cursor-style="image"
+					class="rounded-xl shadow-lg max-w-xs pointer-events-auto"
+				/>
+			</div>
+		</div>
+	</div>
 </section>
-
 
 <!-- animation for the background -->
 <script>
-import { animate, onScroll, stagger } from 'animejs'
-import Lenis from 'lenis'
+	import { animate, onScroll, stagger } from "animejs";
+	import { GRID_HEIGHT, GRID_WIDTH } from "../react/GridGen";
 
-const lenis = new Lenis({ autoRaf: true })
+	animate(".background", {
+		translate: "0 0",
+		duration: 500,
+		ease: "inOutBounce",
+		autoplay: onScroll({
+			onEnterForward: () => {
+				animate("#content header, #content p", {
+					opacity: 1,
+					translateY: 0,
+					filter: "blur(0px)",
+					delay: stagger(100, {
+						start: 400,
+					}),
+					duration: 1000,
+					easing: "easeOutExpo",
+				});
+			},
+			enter: "enter+=80",
 
-animate(".background", {
-  translate: "0 0",
-  duration: 500,
-  ease: "inOutBounce",
-  autoplay: onScroll({
-    onEnterForward: () => {
-      animate("#content header, #content p", {
-    opacity: 1,
-        translateY: 0,
-  filter: "blur(0px)",
-    delay: stagger(100, {
-      start: 400,
-    }),
-    duration: 1000,
-    easing: "easeOutExpo",
-  })
-    },
-    enter: "enter+=80",
-    onLeaveForward: () => {
-                    animate(".bg-cell", {
-                        backgroundColor: "rgba(255, 255, 255, 0.1)",
-                        translate: "100% 0",
-                        boxShadow: "0px 2px 5px rgba(198, 198, 198, 0.5)"
-                    });
-                }
-  })
-})
-
+			onEnter: () => {
+				animate(".bg-cell", {
+					border: ["50px solid red", "1px solid rgba(96, 96, 96, 0.1)"],
+					backgroundColor: [
+						"rgba(255, 255, 255, 0.1)",
+						"rgba(255, 0, 0, 0.5)",
+						"rgba(255, 255, 255, 0)",
+					],
+					delay: stagger(65, {
+						grid: [GRID_WIDTH, GRID_HEIGHT],
+						from: "center",
+					}),
+					duration: 450,
+					easing: "inBounce",
+					autoplay: onScroll({
+						enter: "enter+=80 bottom-=80",
+					}),
+				});
+			},
+		}),
+	});
 </script>

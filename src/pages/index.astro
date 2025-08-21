@@ -1,27 +1,32 @@
 ---
-import BackgroundParticles from '../components/astro/BackgroundParticles.astro';
-import AboutMe from '../components/astro/AboutMe.astro';
+import BackgroundParticles from "../components/astro/BackgroundParticles.astro";
+import AboutMe from "../components/astro/AboutMe.astro";
 // import LandingPageText from '../components/astro/LandingPageText.astro';
-import { CustomCursor } from '../components/react/CustomCursor.jsx';
-import Layout from '../layouts/Layout.astro';
+import { CustomCursor } from "../components/react/CustomCursor.jsx";
+import Layout from "../layouts/Layout.astro";
+import SkillsShowcase from "../components/astro/SkillsShowcase.astro";
 // import "../styles/AboutMe.css";
 ---
 
 <Layout>
 	<CustomCursor client:only />
-	
-	<section class="w-screen h-screen flex justify-center items-center-safe flex-col">
+
+	<section
+		class="w-screen h-screen flex justify-center items-center-safe flex-col"
+	>
 		<BackgroundParticles />
-		<h1  class="special-gothic-expanded-one-regular text-2xl text-center">
-			Hi, I'm 
+		<h1 class="special-gothic-expanded-one-regular text-2xl text-center">
+			Hi, I'm
 			<span class="text-6xl uppercase">hiyo</span>
 		</h1>
-		
-		<p class="text-center text-lg mt-4" data-cursor-style="bg-transparent">I'm a web developer</p> <!-- ini sementara -->
+
+		<p class="text-center text-lg mt-4" data-cursor-style="line-text">
+			I'm a web developer
+		</p>
+		<!-- ini sementara -->
 	</section>
 
-	<AboutMe/>
+	<AboutMe />
 
-	
+	<SkillsShowcase />
 </Layout>
-
