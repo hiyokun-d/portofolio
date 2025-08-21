@@ -8,7 +8,7 @@ import GridGen from "../../components/react/GridGen.jsx";
 >
 	<div
 		id="background"
-		class="absolute w-full h-full flex justify-between z-[-10] pointer-events-auto overflow-hidden"
+		class="absolute w-full h-full flex justify-between z-[-10] pointer-events-auto overflow-x-hidden"
 	>
 		<div id="bg-left" class="background w-[50vw] h-full"></div>
 		<div id="bg-right" class="background w-[50vw] h-full"></div>
@@ -16,7 +16,7 @@ import GridGen from "../../components/react/GridGen.jsx";
 			id="bg-grid"
 			class="absolute w-full h-full grid grid-cols-10
 			sm:grid-cols-8
-			xs:grid-cols-6"
+			xs:grid-cols-6 overflow-x-hidden"
 			style={{ aspectRatio: "10/6" }}
 		>
 			<GridGen client:only />
@@ -91,7 +91,7 @@ import GridGen from "../../components/react/GridGen.jsx";
 			</div>
 
 			<!-- Right side: image -->
-			<div
+			<!-- <div
 				class="flex-1 flex justify-center md:justify-end pointer-events-auto"
 			>
 				<img
@@ -100,7 +100,7 @@ import GridGen from "../../components/react/GridGen.jsx";
 					data-cursor-style="image"
 					class="rounded-xl shadow-lg max-w-xs pointer-events-auto"
 				/>
-			</div>
+			</div> -->
 		</div>
 	</div>
 </section>
