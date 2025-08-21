@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Bitcount:wght@100..900&family=Roboto+Flex:opsz,wght@8..144,100..1000&family=Special+Gothic+Expanded+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Bitcount:wght@100..900&family=Edu+NSW+ACT+Cursive:wght@400..700&family=Playwrite+AU+QLD:wght@100..400&family=Roboto+Flex:opsz,wght@8..144,100..1000&family=Special+Gothic+Expanded+One&display=swap");
 @import "tailwindcss";
 
 * {
@@ -88,6 +88,20 @@ text {
 	font-style: normal;
 	font-variation-settings: "slnt" 0, "wdth" 100, "GRAD" 0, "XOPQ" 96, "XTRA" 468,
 		"YOPQ" 79, "YTAS" 750, "YTDE" -203, "YTFI" 738, "YTLC" 514, "YTUC" 712;
+}
+
+.edu-nsw-act-cursive-default {
+	font-family: "Edu NSW ACT Cursive", cursive;
+	font-optical-sizing: auto;
+	font-weight: 400;
+	font-style: normal;
+}
+
+.playwrite-au-qld-default {
+	font-family: "Playwrite AU QLD", cursive;
+	font-optical-sizing: auto;
+	font-weight: 300;
+	font-style: normal;
 }
 
 .bebas-neue-regular {
