@@ -4,11 +4,11 @@ import GridGen from "../../components/react/GridGen.jsx";
 ---
 
 <section
-	class="relative w-screen h-screen flex justify-center items-center-safe flex-col pointer-events-none overflow-hidden"
+	class="relative w-screen h-screen flex justify-center items-center-safe flex-col pointer-events-none"
 >
 	<div
 		id="background"
-		class="absolute w-full h-full flex justify-between z-[-10] pointer-events-auto"
+		class="absolute w-full h-full flex justify-between z-[-10] pointer-events-auto overflow-x-hidden"
 	>
 		<div id="bg-left" class="background w-[50vw] h-full"></div>
 		<div id="bg-right" class="background w-[50vw] h-full"></div>
@@ -91,7 +91,7 @@ import GridGen from "../../components/react/GridGen.jsx";
 			</div>
 
 			<!-- Right side: image -->
-			<div
+			<!-- <div
 				class="flex-1 flex justify-center md:justify-end pointer-events-auto"
 			>
 				<img
@@ -100,7 +100,7 @@ import GridGen from "../../components/react/GridGen.jsx";
 					data-cursor-style="image"
 					class="rounded-xl shadow-lg max-w-xs pointer-events-auto"
 				/>
-			</div>
+			</div> -->
 		</div>
 	</div>
 </section>
