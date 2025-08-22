@@ -38,7 +38,7 @@ export default function GridGen({ }) {
             cells.push(
                 <div
                     key={i}
-                    className="bg-cell w-full h-full bg-transparent border-0"
+                    className="bg-cell w-full aspect-square bg-transparent border-0"
                     data-index={i}
                     onClick={handleClick}
                 />
