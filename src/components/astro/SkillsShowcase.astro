@@ -1,5 +1,6 @@
 ---
 import LineSkills from "./LineSkills.astro";
+import SkillsBox from "./SkillsBox.astro";
 ---
 
 <section
@@ -22,8 +23,12 @@ import LineSkills from "./LineSkills.astro";
 			width="130"
 			class="rounded-xl shadow-lg max-w-xs pointer-events-auto"
 		/>
-		<div id="skills" class="w-20 h-20 bg-red-500 absolute top-90 left-200">
-		</div>
+
+		<!-- <div id="skills" class="w-20 h-20 bg-red-500 absolute top-90 left-200">
+		</div> -->
+		<!-- <LineSkills targetID="skills" /> -->
+
+		<SkillsBox title="home" progress={20} icon="HTML" skillsID="skills-html" />
 	</div>
 </section>
 
