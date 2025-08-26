@@ -1,0 +1,1 @@
+const i=()=>{const e=navigator.userAgent||navigator.vendor||window.opera;if(console.log(`User Agent: ${e}`),/android/i.test(e)||/iPad|iPhone|iPod/.test(e)&&!window.MSStream)return!0;const t="ontouchstart"in window||navigator.maxTouchPoints>0,n=window.innerWidth<=768;return!!(t&&n||window.matchMedia&&window.matchMedia("(pointer: coarse)").matches)};export{i};
