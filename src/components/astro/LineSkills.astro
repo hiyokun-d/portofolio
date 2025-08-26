@@ -5,7 +5,7 @@ const lineId = `Line-Skills-${targetID || Math.random().toString(36).substring(2
 
 <div
 	id={lineId}
-	class="absolute bg-white origin-left h-2"
+	class={`absolute bg-white origin-left h-2 z-[-10]`}
 	data-target={targetID}
 >
 </div>
@@ -48,6 +48,7 @@ const lineId = `Line-Skills-${targetID || Math.random().toString(36).substring(2
 		line.style.width = `${distance}px`;
 		line.style.transform = `rotate(${angle}deg)`;
 		line.style.transformOrigin = "0 50%";
+		requestAnimationFrame(updateLine);
 	}
 
 	// Run once at load
