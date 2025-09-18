@@ -10,8 +10,8 @@ function safeId(str) {
 export default function SkillsBox({ title, progress, skillsID, index, icon, total }) {
     const safeSkillsID = safeId(skillsID || "home");
 
-    // Generate random radius once (stable with useMemo)
-    const radius = useMemo(() => 190 + Math.random() * 90, []); // 160–240
+    // Fixed radius (no randomness)
+    const radius = 250; // pick a number in the 160–240 range
     const angle = (2 * Math.PI * index) / total;
 
     const x = Math.cos(angle) * radius;
@@ -26,6 +26,21 @@ export default function SkillsBox({ title, progress, skillsID, index, icon, tota
         });
     }, [x, y, index, safeSkillsID]);
 
+    // Handle hover events for line snapping
+    const handleMouseEnter = (e) => {
+        const rect = e.currentTarget.getBoundingClientRect();
+        const x = rect.left + rect.width / 2 + window.scrollX;
+        const y = rect.top + rect.height / 2 + window.scrollY;
+
+        window.dispatchEvent(new CustomEvent('skill-hover', {
+            detail: { x, y }
+        }));
+    };
+
+    const handleMouseLeave = () => {
+        window.dispatchEvent(new Event('skill-unhover'));
+    };
+
     return (
         <div
             id={safeSkillsID}
@@ -36,11 +51,13 @@ export default function SkillsBox({ title, progress, skillsID, index, icon, tota
                 transform: "translate(-50%, -50%)",
                 backgroundColor: "rgba(25, 25, 25, 0.5)"
             }}
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
         >
             <Icon
                 icon={`devicon:${icon}`}
                 width={40}
-                className="cursor-pointer transition-transform duration-300 group-hover:scale-125"
+                className="cursor-pointer transition-transform duration-300 group-hover:scale-125 z-100"
             />
 
             {/* Tooltip */}

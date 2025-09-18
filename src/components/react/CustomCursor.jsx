@@ -155,7 +155,6 @@ export function CustomCursor() {
                         setBackground("bg-transparent");
                         break;
                     case "line-text":
-
                         animCursor.width(8); // thin vertical line
                         animCursor.height(fontSize * 1.5); // slightly taller than font size for breathing room
                         animCursor.borderRadius(5);

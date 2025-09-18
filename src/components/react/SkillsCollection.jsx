@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import SkillsBox from "./SkillsBox";
+import { isMobileDevice } from "../../function/isMobileDevice";
+import LineSkills from "./LineSkills";
 
 export let baseSkills = [
     { id: "react", title: "React", progress: 85 },
@@ -23,17 +25,46 @@ export let baseSkills = [
     { id: "c", title: "C", progress: 5 },
     { id: "java", title: "Java", progress: 5 },
 ];
-
+/* 
+            < SkillsBox
+                key={i}
+                title={skill.title}
+                progress={skill.progress}
+                skillsID={skill.id}
+                index={i}
+                icon={skill.id}
+                total={baseSkills.length}
+            />
+*/
 export function SkillsCollection() {
-    return baseSkills.map((skill, i) => (
-        <SkillsBox
-            key={i}
-            title={skill.title}
-            progress={skill.progress}
-            skillsID={skill.id}
-            index={i}
-            icon={skill.id}
-            total={baseSkills.length}
-        />
-    ));
+    const [isShrink, setShrinking] = useState(false);
+
+    return isMobileDevice ? (
+        <>
+            <div className={` absolute w-[600px] h-[600px] p-10 bg-amber-50 z-[-50] rounded-full`}
+                style={{
+                    top: `50%`,
+                    left: `50%`,
+                    transform: "translate(-50%, -50%)",
+                }}
+                onMouseEnter={() => setShrinking(false)}   // ✅ set true when mouse enters
+                onMouseLeave={() => setShrinking(true)}
+            >
+
+                {baseSkills.map((skill, i) => (
+                    <SkillsBox
+                        key={i}
+                        title={skill.title}
+                        progress={skill.progress}
+                        skillsID={skill.id}
+                        index={i}
+                        icon={skill.id}
+                        total={baseSkills.length}
+                    />
+                ))}
+                <LineSkills shrink={isShrink} />
+            </div>
+        </>
+    )
+        : <h1>Hello</h1>
 }
