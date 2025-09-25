@@ -1,0 +1,41 @@
+/* Optimized local fonts - only essential weights */
+@font-face {
+  font-family: 'Bebas Neue';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('./bebas-neue.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Special Gothic Expanded One';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('./special-gothic.ttf') format('truetype');
+}
+
+/* Fallback system fonts for other font families to reduce load */
+.bitcount-fallback {
+  font-family: 'SF Mono', 'Monaco', 'Cascadia Code', 'Roboto Mono', 'Consolas', 'Courier New', monospace;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.roboto-flex-fallback {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 100;
+  font-style: normal;
+}
+
+.edu-nsw-act-cursive-fallback {
+  font-family: 'Apple Chancery', 'Brush Script MT', cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.playwrite-au-qld-fallback {
+  font-family: 'Apple Chancery', 'Brush Script MT', cursive;
+  font-weight: 300;
+  font-style: normal;
+}

@@ -1,0 +1,59 @@
+{
+  "name": "Hiyo's Portfolio",
+  "short_name": "Hiyo",
+  "description": "Hiyo's Web Developer Portfolio - Showcasing skills in React, Astro, and modern web technologies",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0f0e1a",
+  "theme_color": "#0f0e1a",
+  "orientation": "portrait-primary",
+  "categories": ["portfolio", "developer", "technology"],
+  "lang": "en-US",
+  "scope": "/",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "16x16 32x32",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "View Skills",
+      "short_name": "Skills",
+      "description": "View my technical skills",
+      "url": "/#skills",
+      "icons": [
+        {
+          "src": "/favicon.ico",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "About Me",
+      "short_name": "About",
+      "description": "Learn more about me",
+      "url": "/#about",
+      "icons": [
+        {
+          "src": "/favicon.ico",
+          "sizes": "96x96"
+        }
+      ]
+    }
+  ],
+  "prefer_related_applications": false
+}

@@ -1,26 +1,47 @@
+import { animate } from 'animejs';
 import { useEffect, useRef, useState } from 'react'
 
+/**
+ * LineSkills Component
+ * 
+ * This component creates a dynamic line that follows the cursor or snaps to skills
+ * when the user hovers over the SkillsCollection container.
+ * 
+ * @param {boolean} shrink - When true, line will animate to width 0. When false, line follows cursor.
+ */
 export default function LineSkills({ shrink = false }) {
     const lineRef = useRef(null);
     const snapTargetRef = useRef(null);
     const [isHoveringSkill, setIsHoveringSkill] = useState(false);
+    const animationFrameRef = useRef(null); // For debouncing animation
+    const lastWidthRef = useRef(0); // Track the last calculated width
 
-    // Handle shrink animation
+    // Handle shrink/expand effect separately from mouse tracking
     useEffect(() => {
         const line = lineRef.current;
         if (!line) return;
 
+        // Cancel any running animations
+        if (animationFrameRef.current) {
+            cancelAnimationFrame(animationFrameRef.current);
+            animationFrameRef.current = null;
+        }
 
-
-        /* if (shrink) {
-            // Animate shrinking to center with smooth transition
-            line.style.transition = 'width 0.5s ease-out, opacity 0.5s ease-out';
-            line.style.width = '0px';
+        if (shrink) {
+            // Shrink animation when leaving the container
+            animate(line, {
+                width: 0,
+                duration: 700,
+                easing: "easeInOutQuad"
+            });
         } else {
-            // Reset transition and opacity
-            line.style.transition = 'none';
-            line.style.opacity = '1';
-        } */
+            // Expand to last known width or a default value
+            animate(line, {
+                width: lastWidthRef.current || 100,
+                duration: 700,
+                easing: "easeInOutQuad"
+            });
+        }
     }, [shrink]);
 
     useEffect(() => {
@@ -50,7 +71,11 @@ export default function LineSkills({ shrink = false }) {
             const distance = Math.sqrt(dx * dx + dy * dy);
             const angle = Math.atan2(dy, dx) * (180 / Math.PI);
 
+            // Store last calculated width for when container is re-entered
+            lastWidthRef.current = distance;
+
             // Update line with smooth transition when snapping
+
             if (snapTargetRef.current && !isHoveringSkill) {
                 line.style.transition = 'width 0.3s ease-out, transform 0.3s ease-out';
                 setIsHoveringSkill(true);
@@ -66,9 +91,39 @@ export default function LineSkills({ shrink = false }) {
                 line.style.transition = 'none';
             }
 
-            // Set width to exact distance and rotate around the center point
-            line.style.width = `${distance}px`;
-            line.style.transform = `translateY(-50%) rotate(${angle}deg)`;
+            // if (snapTargetRef.current && !isHoveringSkill) {
+            //     setIsHoveringSkill(true);
+            //     animate(line, {
+            //         width: distance,
+            //         duration: 300,
+            //         easing: "easeOutSine"
+            //     });
+            // } else if (!snapTargetRef.current && isHoveringSkill) {
+            //     setIsHoveringSkill(false);
+            // }
+
+            // Debounce frequent updates with requestAnimationFrame
+            if (animationFrameRef.current) {
+                cancelAnimationFrame(animationFrameRef.current);
+            }
+
+            animationFrameRef.current = requestAnimationFrame(() => {
+                // Only animate if not shrinking
+                if (!shrink) {
+                    // For normal cursor tracking, animate with shorter duration
+                    if (!snapTargetRef.current) {
+                        animate(line, {
+                            width: distance,
+                            duration: 100, // Faster for cursor tracking
+                            easing: "linear"
+                        });
+                    }
+
+                    // Always update rotation angle immediately
+                    line.style.transform = `translateY(-50%) rotate(${angle}deg)`;
+                }
+                animationFrameRef.current = null;
+            });
         }
 
         function handleSkillHover(event) {
@@ -90,6 +145,11 @@ export default function LineSkills({ shrink = false }) {
         window.addEventListener("skill-unhover", handleSkillUnhover);
 
         return () => {
+            // Clean up animations and event listeners
+            if (animationFrameRef.current) {
+                cancelAnimationFrame(animationFrameRef.current);
+                animationFrameRef.current = null;
+            }
             window.removeEventListener("mousemove", updateLine);
             window.removeEventListener("skill-hover", handleSkillHover);
             window.removeEventListener("skill-unhover", handleSkillUnhover);
@@ -98,14 +158,13 @@ export default function LineSkills({ shrink = false }) {
     return (
         <div
             ref={lineRef}
-            className="absolute bg-black h-1 z-[-20] pointer-events-auto"
+            className="absolute bg-black h-1 z-[-20] pointer-events-auto line-something"
             style={{
                 top: `50%`,
                 left: `50%`,
-                width: '0px', // Start with 0 width
                 transformOrigin: "0 50%", // Rotate from left center (the center point)
                 transform: "translateY(-50%)", // Only center vertically, horizontal positioning handled by left: 50%
-
+                width: "0px" // Start with 0 width by default
             }}
         >
         </div>
