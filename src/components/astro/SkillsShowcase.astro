@@ -1,6 +1,6 @@
 ---
 import SkillsBox from "../react/SkillsBox.jsx";
-import { SkillsCollection, baseSkills } from "../react/SkillsCollection.jsx";
+import { SkillsCollection } from "../react/SkillsCollection.jsx";
 import { Image } from "astro:assets";
 ---
 
@@ -13,8 +13,8 @@ import { Image } from "astro:assets";
 			alt="Portrait of Daffa"
 			data-cursor-style="image"
 			id="icon-skills"
-			width={130}
-			height={130}
+			width={430}
+			height={430}
 			class="rounded-xl shadow-lg max-w-xs pointer-events-auto"
 		/>
 
@@ -51,6 +51,13 @@ import { Image } from "astro:assets";
 			if (titleElement) {
 				titleElement.style.display = "none";
 			}
+
+			animate("#icon-skills", {
+				width: 130,
+				height: 130,
+				duration: 400,
+				easing: "inOutBounce",
+			});
 
 			animate("#content-skills", {
 				filter: "blur(0px)",

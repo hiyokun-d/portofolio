@@ -163,7 +163,17 @@ export function CustomCursor() {
                             "bg-transparent border-l-[2px] border-emerald-400 shadow-[0_0_8px_#34d399]/70"
                         );
                         break;
+                    case "tooltip-skill":
+                        console.warn("it does work")
+                        animCursor.width(defaultSize * 1.2);
+                        animCursor.height(defaultSize * 1.2);
+                        animCursor.borderRadius(8);
+                        setBackground(
+                            "bg-gradient-to-br from-emerald-400 via-lime-400 to-yellow-300 shadow-[0_0_10px_#a3e635]/70 border border-white/20"
+                        );
+                        break;
                     default:
+
                         if (isCustomStyle !== "none" && cursorStyle !== "pointer") {
                             animCursor.width(cursorStyle === "auto" ? defaultSize : cachedRect.width + 5);
                             animCursor.height(cursorStyle === "auto" ? defaultSize : cachedRect.height + 5);

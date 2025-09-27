@@ -158,7 +158,7 @@ export default function LineSkills({ shrink = false }) {
     return (
         <div
             ref={lineRef}
-            className="absolute bg-black h-1 z-[-20] pointer-events-auto line-something"
+            className="line-skills absolute bg-black h-1 z-[-20] pointer-events-auto line-something"
             style={{
                 top: `50%`,
                 left: `50%`,

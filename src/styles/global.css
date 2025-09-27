@@ -144,3 +144,19 @@ html.lenis body {
 		background-position: 0% 50%;
 	}
 }
+
+/* Tooltip animations */
+@keyframes tooltipOpen {
+	from { 
+		transform: scale(0.95); 
+		opacity: 0; 
+	}
+	to { 
+		transform: scale(1); 
+		opacity: 1; 
+	}
+}
+
+.animate-tooltipOpen {
+	animation: tooltipOpen 0.2s ease-out;
+}
